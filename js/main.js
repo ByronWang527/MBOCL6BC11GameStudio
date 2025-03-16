@@ -6,17 +6,17 @@ const games = {
         rules: '控制猫咪飞行，收集星星，避开障碍物。使用空格键或点击屏幕让猫咪飞行。',
         content: '<div class="game-simulation"><img src="images/flying-cat.jpg" alt="Flying Cat Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>Flying Cat 游戏模拟画面</p></div>'
     },
+    'fly-airplane': {
+        name: 'Fly 0.1 airplane',
+        description: '刺激的飞机模拟游戏',
+        rules: '驾驶飞机完成各种任务，避开障碍物，安全着陆。使用W、A、S、D控制飞机方向，空格键加速。',
+        content: '<div class="game-simulation"><iframe src="https://byronwang527.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
+    },
     'people-travel': {
         name: 'People travel',
         description: '探索世界各地的旅行游戏',
         rules: '选择不同的目的地，完成旅行任务，收集纪念品。使用方向键移动，按E键与物品互动。',
         content: '<div class="game-simulation"><img src="images/people-travel.jpg" alt="People Travel Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>People Travel 游戏模拟画面</p></div>'
-    },
-    'fly-airplane': {
-        name: 'Fly 0.1 airplane',
-        description: '刺激的飞机模拟游戏',
-        rules: '驾驶飞机完成各种任务，避开障碍物，安全着陆。使用W、A、S、D控制飞机方向，空格键加速。',
-        content: '<div class="game-simulation"><img src="images/fly-airplane.jpg" alt="Fly Airplane Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>Fly 0.1 Airplane 游戏模拟画面</p></div>'
     },
     '3d-parker': {
         name: '3D parker',
