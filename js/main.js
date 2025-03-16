@@ -6,17 +6,23 @@ const games = {
         rules: '控制猫咪飞行，收集星星，避开障碍物。使用空格键或点击屏幕让猫咪飞行。',
         content: '<div class="game-simulation"><iframe src="https://sarah912999.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
     },
-    'fly-airplane': {
-        name: 'Fly 0.1 airplane',
-        description: '刺激的飞机模拟游戏',
-        rules: '驾驶飞机完成各种任务，避开障碍物，安全着陆。使用W、A、S、D控制飞机方向，空格键加速。',
-        content: '<div class="game-simulation"><iframe src="https://byronwang527.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
-    },
     'people-travel': {
         name: 'People travel',
         description: '探索世界各地的旅行游戏',
         rules: '选择不同的目的地，完成旅行任务，收集纪念品。使用方向键移动，按E键与物品互动。',
         content: '<div class="game-simulation"><img src="images/people-travel.jpg" alt="People Travel Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>People Travel 游戏模拟画面</p></div>'
+    },
+    'ooooo': {
+        name: 'OOOOO',
+        description: '刺激的射击冒险游戏',
+        rules: '游戏操作说明：\n- 方向键：移动\n- 空格键：射击\n- Z键：跳跃\n- G键：投掷手雷\n- B键：打开商城\n\n游戏目标：\n- 消灭恐龙\n- 收集分数\n- 在商城购买升级道具',
+        content: '<iframe src="https://oliver-2015.github.io/ooooo/" style="width: 100%; height: 600px; border: none;" allowfullscreen></iframe>'
+    },
+    'fly-airplane': {
+        name: 'Fly 0.1 airplane',
+        description: '刺激的飞机模拟游戏',
+        rules: '驾驶飞机完成各种任务，避开障碍物，安全着陆。使用W、A、S、D控制飞机方向，空格键加速。',
+        content: '<div class="game-simulation"><iframe src="https://byronwang527.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
     },
     '3d-parker': {
         name: '3D parker',
