@@ -41,6 +41,12 @@ const games = {
         description: '精彩的游戏体验',
         rules: '游戏规则：\n1. 使用手机触屏或电脑方向键控制上下左右移动\n2. 收集金币，每获得50个金币可以进行一次大跳\n3. 合理利用大跳功能来通过关卡',
         content: '<iframe src="https://lindi761.github.io/game7/" style="width: 100%; height: 600px; border: none;"></iframe>'
+    },
+    'bird-game': {
+        name: '小鸟霸占天空',
+        description: '勇敢的小鸟飞行冒险',
+        rules: '游戏规则：\n1. 点击屏幕或按空格键让小鸟飞翔\n2. 避开障碍物，穿越管道\n3. 尽可能飞得更远，获得更高分数',
+        content: '<iframe src="https://szhai1977.github.io/game1/" style="width: 100%; height: 600px; border: none;"></iframe>'
     }
 };
 
