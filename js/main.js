@@ -4,7 +4,7 @@ const games = {
         name: 'Flying Cat',
         description: '一款有趣的飞行猫咪游戏',
         rules: '控制猫咪飞行，收集星星，避开障碍物。使用空格键或点击屏幕让猫咪飞行。',
-        content: '<div class="game-simulation"><img src="images/flying-cat.jpg" alt="Flying Cat Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>Flying Cat 游戏模拟画面</p></div>'
+        content: '<div class="game-simulation"><iframe src="https://sarah912999.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
     },
     'fly-airplane': {
         name: 'Fly 0.1 airplane',
