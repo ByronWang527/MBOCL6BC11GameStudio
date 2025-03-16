@@ -29,6 +29,12 @@ const games = {
         description: '3D跑步竞速游戏',
         rules: '在3D环境中奔跑，跳跃障碍物，收集加速道具。使用方向键控制角色，空格键跳跃。',
         content: '<div class="game-simulation"><img src="images/3d-running.jpg" alt="3D Running Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>3D跑步 游戏模拟画面</p></div>'
+    },
+    'wanyun-game': {
+        name: 'Crazy Box',
+        description: '精彩的游戏体验',
+        rules: '游戏规则：\n1. 使用手机触屏或电脑方向键控制上下左右移动\n2. 收集金币，每获得50个金币可以进行一次大跳\n3. 合理利用大跳功能来通过关卡',
+        content: '<iframe src="https://lindi761.github.io/game7/" style="width: 100%; height: 600px; border: none;"></iframe>'
     }
 };
 
