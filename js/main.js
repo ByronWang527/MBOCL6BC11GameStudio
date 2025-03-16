@@ -30,6 +30,12 @@ const games = {
         rules: '在3D环境中奔跑，跳跃障碍物，收集加速道具。使用方向键控制角色，空格键跳跃。',
         content: '<div class="game-simulation"><img src="images/3d-running.jpg" alt="3D Running Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>3D跑步 游戏模拟画面</p></div>'
     },
+    'game6': {
+        name: '一蹦三尺高（落地点吗？预判呗）',
+        description: '有趣的方块跑酷',
+        rules: '## 玩法说明：\n\n🎮 电脑操作方式：\n\n* ← → 方向键：左右移动\n* ↑ 方向键：跳跃\n* ↓ 方向键：蹲下\n\n📱 手机操作方式：\n\n* 触摸左侧区域：向左移动\n* 触摸中间区域：跳跃\n* 触摸右侧区域：向右移动\n\n🎯 游戏目标：\n\n* 到达每关右上角的绿色终点\n* 避开红色尖刺陷阱\n* 注意！有些平台会移动或消失\n\n💡 小贴士：\n\n* 蹲下可以降低重心，更容易控制\n* 移动平台需要把握好时机\n* 前两关是适应关卡，熟悉一下操作',
+        content: '<iframe src="https://lindi761.github.io/Game6/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>'
+    },
     'wanyun-game': {
         name: 'Crazy Box',
         description: '精彩的游戏体验',
@@ -93,7 +99,24 @@ function selectGame(gameId) {
     if (currentGame) {
         currentGameName.textContent = currentGame.name;
         gameContent.innerHTML = currentGame.content;
-        gameRules.innerHTML = `<p>${currentGame.rules}</p>`;
+        
+        // 处理游戏规则的格式化显示
+        let formattedRules = currentGame.rules;
+        
+        // 处理Markdown标题
+        formattedRules = formattedRules.replace(/^## (.*?)$/gm, '<h4>$1</h4>');
+        
+        // 处理列表项
+        formattedRules = formattedRules.replace(/^\* (.*?)$/gm, '<li>$1</li>');
+        formattedRules = formattedRules.replace(/<li>(.*?)<\/li>/g, function(match) {
+            return '<ul>' + match + '</ul>';
+        }).replace(/<\/ul><ul>/g, '');
+        
+        // 处理换行
+        formattedRules = formattedRules.replace(/\n\n/g, '<br><br>');
+        formattedRules = formattedRules.replace(/\n/g, '<br>');
+        
+        gameRules.innerHTML = formattedRules;
     }
     
     // 停止当前游戏（如果正在运行）
