@@ -201,6 +201,7 @@ main {
     background-color: #d35400;
 }
 
+/* 游戏信息区域样式 */
 .game-info {
     margin-top: 20px;
     padding: 15px;
@@ -211,6 +212,28 @@ main {
 .game-info h3 {
     margin-bottom: 10px;
     color: #2c3e50;
+}
+
+#game-rules {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#game-rules h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #2980b9;
+    font-size: 1.1rem;
+}
+
+#game-rules ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#game-rules li {
+    margin-bottom: 5px;
 }
 
 /* 页脚样式 */
