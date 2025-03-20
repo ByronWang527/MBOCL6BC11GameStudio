@@ -4,7 +4,7 @@ const games = {
         name: 'Flying Cat',
         description: '一款有趣的飞行猫咪游戏',
         rules: '控制猫咪飞行，收集星星，避开障碍物。使用空格键或点击屏幕让猫咪飞行。',
-        content: '<div class="game-simulation"><img src="images/flying-cat.jpg" alt="Flying Cat Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>Flying Cat 游戏模拟画面</p></div>'
+        content: '<div class="game-simulation"><iframe src="https://sarah912999.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
     },
     'people-travel': {
         name: 'People travel',
@@ -12,11 +12,17 @@ const games = {
         rules: '选择不同的目的地，完成旅行任务，收集纪念品。使用方向键移动，按E键与物品互动。',
         content: '<div class="game-simulation"><img src="images/people-travel.jpg" alt="People Travel Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>People Travel 游戏模拟画面</p></div>'
     },
+    'ooooo': {
+        name: 'OOOOO',
+        description: '刺激的射击冒险游戏',
+        rules: '游戏操作说明：\n- 方向键：移动\n- 空格键：射击\n- Z键：跳跃\n- G键：投掷手雷\n- B键：打开商城\n\n游戏目标：\n- 消灭恐龙\n- 收集分数\n- 在商城购买升级道具',
+        content: '<iframe src="https://oliver-2015.github.io/ooooo/" style="width: 100%; height: 600px; border: none;" allowfullscreen></iframe>'
+    },
     'fly-airplane': {
         name: 'Fly 0.1 airplane',
         description: '刺激的飞机模拟游戏',
         rules: '驾驶飞机完成各种任务，避开障碍物，安全着陆。使用W、A、S、D控制飞机方向，空格键加速。',
-        content: '<div class="game-simulation"><img src="images/fly-airplane.jpg" alt="Fly Airplane Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>Fly 0.1 Airplane 游戏模拟画面</p></div>'
+        content: '<div class="game-simulation"><iframe src="https://byronwang527.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
     },
     '3d-parker': {
         name: '3D parker',
@@ -53,6 +59,12 @@ const games = {
         description: '经典的吃豆人迷宫游戏',
         rules: '### 游戏说明:\n\n* 移动吃豆人收集迷宫中的所有豆子\n* 使用键盘方向键或屏幕按钮控制移动\n* 避开彩色幽灵，它们会减少你的生命\n* 吃到闪烁的大能量豆后，可以暂时吃掉幽灵获得额外分数\n* 收集所有豆子即可获胜！\n\n### 游戏技巧:\n\n* 当幽灵靠近时，寻找能量豆\n* 吃能量豆后，幽灵会变蓝并逃跑\n* 蓝色幽灵可以被吃掉获得额外分数\n* 提前规划路线，避免被幽灵困住',
         content: '<iframe src="https://lindi761.github.io/game-pac/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>'
+    },
+    'bird-game': {
+        name: '小鸟霸占天空',
+        description: '勇敢的小鸟飞行冒险',
+        rules: '游戏规则：\n1. 点击屏幕或按空格键让小鸟飞翔\n2. 避开障碍物，穿越管道\n3. 尽可能飞得更远，获得更高分数',
+        content: '<iframe src="https://szhai1977.github.io/game1/" style="width: 100%; height: 600px; border: none;"></iframe>'
     }
 };
 
