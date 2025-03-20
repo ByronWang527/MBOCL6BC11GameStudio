@@ -41,6 +41,18 @@ const games = {
         description: '精彩的游戏体验',
         rules: '游戏规则：\n1. 使用手机触屏或电脑方向键控制上下左右移动\n2. 收集金币，每获得50个金币可以进行一次大跳\n3. 合理利用大跳功能来通过关卡',
         content: '<iframe src="https://lindi761.github.io/game7/" style="width: 100%; height: 600px; border: none;"></iframe>'
+    },
+    'game3': {
+        name: '3D湖边跑酷',
+        description: '湖边风景优美的3D跑酷游戏',
+        rules: '游戏规则：\n1. 在湖边的美丽环境中奔跑\n2. 使用方向键左右移动，空格键跳跃\n3. 收集沿途的星星来增加分数\n4. 避开障碍物，尽可能跑得更远',
+        content: '<iframe src="https://lindi761.github.io/game3/" style="width: 100%; height: 600px; border: none;"></iframe>'
+    },
+    'pacman': {
+        name: '简易吃豆人游戏',
+        description: '经典的吃豆人迷宫游戏',
+        rules: '### 游戏说明:\n\n* 移动吃豆人收集迷宫中的所有豆子\n* 使用键盘方向键或屏幕按钮控制移动\n* 避开彩色幽灵，它们会减少你的生命\n* 吃到闪烁的大能量豆后，可以暂时吃掉幽灵获得额外分数\n* 收集所有豆子即可获胜！\n\n### 游戏技巧:\n\n* 当幽灵靠近时，寻找能量豆\n* 吃能量豆后，幽灵会变蓝并逃跑\n* 蓝色幽灵可以被吃掉获得额外分数\n* 提前规划路线，避免被幽灵困住',
+        content: '<iframe src="https://lindi761.github.io/game-pac/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>'
     }
 };
 
