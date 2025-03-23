@@ -6,6 +6,7 @@
     <title>MBOCL 6BC11 Game Studio</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+    <script src="js/qr-helper.js" defer></script>
 </head>
 <body>
     <header>
@@ -78,6 +79,10 @@
                     <button id="stop-btn">Stop</button>
                     <button id="restart-btn">Restart</button>
                 </div>
+                <div class="game-payment">
+                    <div id="game-price">免费游戏</div>
+                    <button id="purchase-btn" class="hidden">购买完整版</button>
+                </div>
                 <div class="game-info">
                     <h3>Game rules</h3>
                     <div id="game-rules">
@@ -97,5 +102,32 @@
             <p>&copy; 2025 MBOCL 6BC11 Game Studio. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- 收款码模态窗口 -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>请使用微信扫码支付</h2>
+            <div class="payment-amount">支付金额: <span id="payment-amount">¥15</span></div>
+            
+            <!-- 添加收款码图片 -->
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="background-color: #07c160; color: white; padding: 8px; border-radius: 8px 8px 0 0;">
+                    <h4 style="margin: 0; padding: 0; font-size: 1em;">微信扫码支付</h4>
+                </div>
+                <div style="background-color: white; padding: 15px; border: 1px solid #e0e0e0; border-radius: 0 0 8px 8px;">
+                    <img src="images/wechat-pay-code.png" alt="微信支付" style="width: 200px; height: 200px; display: block; margin: 0 auto;">
+                </div>
+            </div>
+            
+            <div style="background-color: #f5f7fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <p style="margin: 10px 0; color: #666; font-size: 16px;">1. 请使用微信扫描上方二维码</p>
+                <p style="margin: 10px 0; color: #666; font-size: 16px;">2. 支付完成后点击下方按钮</p>
+                <p style="margin: 10px 0; color: #666; font-size: 16px;">3. 确认成功后，您将获得游戏的完整访问权限</p>
+            </div>
+            
+            <button id="confirm-payment-btn" style="background-color: #07c160; width: 100%; padding: 15px 0; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; color: white; cursor: pointer;">我已完成支付</button>
+        </div>
+    </div>
 </body>
 </html> 

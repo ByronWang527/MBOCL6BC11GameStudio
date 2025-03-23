@@ -4,19 +4,25 @@ const games = {
         name: 'Flying Cat',
         description: '一款有趣的飞行猫咪游戏',
         rules: '控制猫咪飞行，收集星星，避开障碍物。使用空格键或点击屏幕让猫咪飞行。',
-        content: '<div class="game-simulation"><iframe src="https://sarah912999.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>'
+        content: '<div class="game-simulation"><iframe src="https://sarah912999.github.io/Game1/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>',
+        price: 0, // 免费
+        isPremium: false
     },
     'people-travel': {
         name: 'People travel',
         description: '探索世界各地的旅行游戏',
         rules: '选择不同的目的地，完成旅行任务，收集纪念品。使用方向键移动，按E键与物品互动。',
-        content: '<div class="game-simulation"><img src="images/people-travel.jpg" alt="People Travel Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>People Travel 游戏模拟画面</p></div>'
+        content: '<div class="game-simulation"><img src="images/people-travel.jpg" alt="People Travel Game" onerror="this.src=\'images/game-placeholder.svg\'"><p>People Travel 游戏模拟画面</p></div>',
+        price: 0, // 免费
+        isPremium: false
     },
     'ooooo': {
         name: 'OOOOO',
         description: '刺激的射击冒险游戏',
         rules: '游戏操作说明：\n- 方向键：移动\n- 空格键：射击\n- Z键：跳跃\n- G键：投掷手雷\n- B键：打开商城\n\n游戏目标：\n- 消灭恐龙\n- 收集分数\n- 在商城购买升级道具',
-        content: '<iframe src="https://oliver-2015.github.io/ooooo/" style="width: 100%; height: 600px; border: none;" allowfullscreen></iframe>'
+        content: '<iframe src="https://oliver-2015.github.io/ooooo/" style="width: 100%; height: 600px; border: none;" allowfullscreen></iframe>',
+        price: 0, // 免费
+        isPremium: false
     },
     'fly-airplane': {
         name: 'Fly 0.1 airplane',
@@ -58,7 +64,31 @@ const games = {
         name: '简易吃豆人游戏',
         description: '经典的吃豆人迷宫游戏',
         rules: '### 游戏说明:\n\n* 移动吃豆人收集迷宫中的所有豆子\n* 使用键盘方向键或屏幕按钮控制移动\n* 避开彩色幽灵，它们会减少你的生命\n* 吃到闪烁的大能量豆后，可以暂时吃掉幽灵获得额外分数\n* 收集所有豆子即可获胜！\n\n### 游戏技巧:\n\n* 当幽灵靠近时，寻找能量豆\n* 吃能量豆后，幽灵会变蓝并逃跑\n* 蓝色幽灵可以被吃掉获得额外分数\n* 提前规划路线，避免被幽灵困住',
-        content: '<iframe src="https://lindi761.github.io/game-pac/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>'
+        content: '<iframe src="https://lindi761.github.io/game-pac/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>',
+        price: 15, // 设置价格为15元
+        isPremium: true, // 标记为付费游戏
+        trialContent: `
+            <div class="trial-version">
+                <div class="trial-game-preview">
+                    <img src="images/game-placeholder.svg" alt="吃豆人游戏预览" onerror="this.src='images/game-placeholder.svg'">
+                    <p>这是吃豆人游戏的预览版本。购买完整版体验更多关卡和功能！</p>
+                </div>
+                <div class="trial-payment-info">
+                    <h3>立即购买完整版</h3>
+                    <p>仅需 15元，畅玩无限关卡</p>
+                    <div class="trial-payment-code">
+                        <div style="background-color: #00c800; color: white; padding: 8px; text-align: center; border-radius: 8px 8px 0 0;">
+                            <h4 style="margin: 0; padding: 0; font-size: 1em;">微信扫码支付</h4>
+                        </div>
+                        <div style="background-color: white; padding: 10px; text-align: center;">
+                            <img src="images/wechat-pay-code.png" 
+                                alt="微信支付" title="扫码支付15元购买完整版" style="width: 150px; height: 150px; display: block; margin: 0 auto;">
+                        </div>
+                        <p>扫描二维码支付后，点击"开始游戏"按钮</p>
+                    </div>
+                </div>
+            </div>
+        `
     },
     'bird-game': {
         name: '小鸟霸占天空',
@@ -83,6 +113,19 @@ const restartBtn = document.getElementById('restart-btn');
 const escBtn = document.getElementById('esc-btn');
 const settingsBtn = document.getElementById('settings-btn');
 const fullscreenBtn = document.getElementById('fullscreen-btn');
+const gamePrice = document.getElementById('game-price');
+const purchaseBtn = document.getElementById('purchase-btn');
+
+// 支付模态窗口元素
+const paymentModal = document.getElementById('payment-modal');
+const closeModalBtn = document.querySelector('.close-modal');
+const paymentAmount = document.getElementById('payment-amount');
+const confirmPaymentBtn = document.getElementById('confirm-payment-btn');
+
+// 用户数据（这里简化处理，实际应用需要后端支持）
+const userData = {
+    purchasedGames: []  // 已购买的游戏ID
+};
 
 // 初始化
 function init() {
@@ -100,6 +143,18 @@ function init() {
     escBtn.addEventListener('click', escapeGame);
     settingsBtn.addEventListener('click', openSettings);
     fullscreenBtn.addEventListener('click', toggleFullscreen);
+    purchaseBtn.addEventListener('click', openPaymentModal);
+
+    // 支付模态窗口事件
+    closeModalBtn.addEventListener('click', closePaymentModal);
+    confirmPaymentBtn.addEventListener('click', confirmPayment);
+
+    // 当用户点击模态窗口外部时关闭模态窗口
+    window.addEventListener('click', (e) => {
+        if (e.target === paymentModal) {
+            closePaymentModal();
+        }
+    });
 
     // 禁用游戏控制按钮
     updateButtonStates();
@@ -122,7 +177,12 @@ function selectGame(gameId) {
     // 更新游戏内容和规则
     if (currentGame) {
         currentGameName.textContent = currentGame.name;
-        gameContent.innerHTML = currentGame.content;
+        
+        // 更新价格和购买按钮
+        updatePaymentInfo();
+        
+        // 根据游戏状态显示正确的内容
+        updateGameContent();
         
         // 处理游戏规则的格式化显示
         let formattedRules = currentGame.rules;
@@ -152,9 +212,123 @@ function selectGame(gameId) {
     updateButtonStates();
 }
 
+// 更新支付信息显示
+function updatePaymentInfo() {
+    if (!currentGame) return;
+    
+    if (currentGame.isPremium) {
+        // 检查是否已购买
+        if (userData.purchasedGames.includes(currentGame.name)) {
+            gamePrice.textContent = "已购买";
+            purchaseBtn.classList.add('hidden');
+        } else {
+            gamePrice.textContent = `价格: ¥${currentGame.price}`;
+            purchaseBtn.textContent = "购买完整版";
+            purchaseBtn.classList.remove('hidden');
+        }
+    } else {
+        gamePrice.textContent = "免费游戏";
+        purchaseBtn.classList.add('hidden');
+    }
+}
+
+// 更新游戏内容显示
+function updateGameContent() {
+    if (!currentGame) return;
+    
+    let gameContentHTML = '';
+    
+    if (currentGame.isPremium && !userData.purchasedGames.includes(currentGame.name)) {
+        // 显示试玩版
+        gameContentHTML = currentGame.trialContent || currentGame.content;
+    } else {
+        // 显示完整版
+        gameContentHTML = currentGame.content;
+    }
+    
+    // 在所有游戏中添加收款码水印（仅显示文本和一个小按钮）
+    gameContentHTML = `
+        <div class="game-container">
+            ${gameContentHTML}
+            <div class="donation-code-watermark">
+                <p>打赏作者</p>
+                <div class="qr-code-wrapper">
+                    <img src="images/wechat-pay-code.png" alt="微信打赏" style="width: 50px; height: 50px;">
+                </div>
+            </div>
+        </div>
+    `;
+    
+    gameContent.innerHTML = gameContentHTML;
+    
+    // 为水印添加点击事件，点击时显示支付模态窗口
+    const watermark = document.querySelector('.donation-code-watermark');
+    if (watermark) {
+        watermark.style.cursor = 'pointer';
+        watermark.addEventListener('click', openPaymentModal);
+    }
+}
+
+// 处理游戏购买
+function purchaseGame() {
+    if (!currentGame || !currentGame.isPremium) return;
+    
+    // 打开支付模态窗口
+    openPaymentModal();
+}
+
+// 打开支付模态窗口
+function openPaymentModal() {
+    if (!currentGame) return;
+    
+    // 更新支付金额
+    paymentAmount.textContent = `¥${currentGame.price}`;
+    
+    // 显示模态窗口
+    paymentModal.style.display = 'block';
+    
+    // 禁止背景滚动
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭支付模态窗口
+function closePaymentModal() {
+    paymentModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// 确认支付
+function confirmPayment() {
+    if (!currentGame) return;
+    
+    // 模拟支付确认流程
+    alert("支付验证中...");
+    
+    // 假设支付成功
+    setTimeout(() => {
+        alert("支付成功！感谢您的购买。");
+        
+        // 将游戏添加到已购买列表
+        userData.purchasedGames.push(currentGame.name);
+        
+        // 更新界面
+        updatePaymentInfo();
+        updateGameContent();
+        
+        // 关闭模态窗口
+        closePaymentModal();
+    }, 1000);
+}
+
 // 开始游戏
 function startGame() {
     if (!currentGame) return;
+    
+    // 如果游戏是付费的且用户尚未购买，显示支付窗口
+    if (currentGame.isPremium && !userData.purchasedGames.includes(currentGame.name)) {
+        openPaymentModal();
+        return; // 阻止游戏启动
+    }
     
     isGameRunning = true;
     gameContent.classList.add('game-running');
